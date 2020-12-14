@@ -10,6 +10,12 @@ FROM $USER_BASE_IMG
 
 # This dockerfile is a shim between the images from Dockerhub and the
 # user.dockerfile.
+
+RUN echo "deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster main contrib non-free" > /etc/apt/sources.list && \
+    echo "deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-updates main contrib non-free" >> /etc/apt/sources.list  && \
+    echo "deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-backports main contrib non-free" >> /etc/apt/sources.list && \
+    echo "deb https://mirrors.tuna.tsinghua.edu.cn/debian-security buster/updates main contrib non-free" >> /etc/apt/sources.list
+
 # Add extra dependencies in here!
 
 # For example, uncomment this to get cowsay on top of the sel4/camkes/l4v
